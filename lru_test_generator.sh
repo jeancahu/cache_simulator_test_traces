@@ -40,7 +40,7 @@ do
     RESULT="00000000$( bc <<< "ibase=10;obase=16;$(( ( TAG * CACHE_SIZE )+(NUM*$1) + ( RANDOM%$1 ) ))" )"
     echo "# $(( RANDOM%2 )) $( echo ${RESULT: -8} | tr 'A-F' 'a-f' ) $(( RANDOM%10 + 5 ))"
     let CTN++
-    if (( $CTN >= 3 ))
+    if (( $CTN >= $(( $3 - 1 )) ))
     then
 	RESULT="00000000$( bc <<< "ibase=10;obase=16;$(( ( TAG_RE * CACHE_SIZE )+(NUM*$1) + ( RANDOM%$1 ) ))" )"
 	echo "# $(( RANDOM%2 )) $( echo ${RESULT: -8} | tr 'A-F' 'a-f' ) $(( RANDOM%10 + 5 ))"
